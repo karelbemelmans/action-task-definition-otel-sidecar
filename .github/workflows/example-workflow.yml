@@ -7,11 +7,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run Python action
-        id: hello-world
+        id: python-action
         uses: karelbemelmans/task-definition-otel-sidecar@main
         with:
           task-definition: 'example/task-definition.json'
 
-      - name: Show greeting
+      - name: Show generated task definition
         run: |
-          echo "${{ steps.hello-world.outputs.greeting }}"
+          apt-get install jq -y
+          echo "file: ${{ steps.python-action.outputs.task-definition }}"
+          cat ${{ steps.python-action.outputs.task-definition }} | jq '.'

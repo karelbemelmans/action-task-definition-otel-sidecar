@@ -25,7 +25,7 @@ def main():
     s = SidecarGenerator()
     updatedTaskDefinition = s.addOtelSidecar(taskDefinition)
 
-    # Generate a new temporary filename with a random filename suffix
+    # Generate a new file in the runner's temp directory
     tmpdir = os.environ.get('RUNNER_TEMP')
     prefix = 'task-definition-'
     extension = '.json'
@@ -35,7 +35,7 @@ def main():
     # Write the updated task definition to file
     try:
         with open(file, 'w') as fh:
-            json.dump(file, fh)
+            json.dump(updatedTaskDefinition, fh)
     except Exception as e:
         print(f":error writing updated task definition: {e}")
         exit(1)

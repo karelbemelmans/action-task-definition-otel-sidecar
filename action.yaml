@@ -1,5 +1,5 @@
-name: 'My First Python action'
-description: "It's just a simple Hello World action."
+name: 'Task Definition Otel Sidecar'
+description: 'It does magic with JSON.'
 
 inputs:
   task-defintion:

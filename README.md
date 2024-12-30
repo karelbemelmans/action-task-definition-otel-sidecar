@@ -1,26 +1,3 @@
-# My first Python Action
+# Task Definition Otel Sidecar
 
-This action runs a Python script that simply return a hello line using the name that was passed as an input argument.
-
-Example workflow:
-
-```yaml
-name: Example workflow using our action
-on:
-  workflow_dispatch:
-
-jobs:
-  hello-world:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Run Python action
-        id: hello-world
-        uses: karelbemelmans/my-first-python-action@main
-        with:
-          who: "John Connor"
-
-      - name: Show greeting
-        run: |
-          echo "${{ steps.hello-world.outputs.greeting }}"
-
-```
+This action adds an OpenTelemetry sidecar to a task-definition.json file. It's very much overkill to do it this way, but I wanted to create a proper Github action with some good tests.
