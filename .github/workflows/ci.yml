@@ -54,6 +54,6 @@ jobs:
       - name: Print Output
         id: output
         run: |
-          File: ${{ steps.test-action.outputs.task-definition }}
-          Contents:
+          echo "File: ${{ steps.test-action.outputs.task-definition }}"
+          echo "Contents:"
           cat "${{ steps.test-action.outputs.task-definition }}" | jq '.'
