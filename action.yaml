@@ -2,7 +2,7 @@ name: 'Task Definition Otel Sidecar'
 description: 'It does magic with JSON.'
 
 inputs:
-  task-defintion:
+  task-definition:
     description: 'Task definition'
     required: true
 
