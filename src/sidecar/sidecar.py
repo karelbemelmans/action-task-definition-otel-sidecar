@@ -1,8 +1,8 @@
 class SidecarGenerator:
 
-    def __init__(self, name=None, image=None):
+    def __init__(self, container_name=None, image=None):
         self.otelSidecarDefinition = {
-            "name": name,
+            "name": container_name,
             "image": image
         }
 

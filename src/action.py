@@ -7,7 +7,7 @@ from sidecar import SidecarGenerator
 def main():
     parser = argparse.ArgumentParser(description='Collect input arguments')
     parser.add_argument('--task-definition', required=False, default="task-definition.json", help='The task defintion')
-    parser.add_argument('--name', required=False, default="otel")
+    parser.add_argument('--container-name', required=False, default="otel")
     parser.add_argument('--image', required=False, default="otel/opentelemetry-collector-contrib:latest")
     args = parser.parse_args()
 
@@ -24,7 +24,7 @@ def main():
         print(f"::error: task definition does not contain containerDefinitions")
         exit(1)
 
-    s = SidecarGenerator(name=args.name, image=args.image)
+    s = SidecarGenerator(name=args.container_name, image=args.image)
     updatedTaskDefinition = s.addOtelSidecar(taskDefinition)
 
     # Generate a new file in the runner's temp directory
