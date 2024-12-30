@@ -6,6 +6,9 @@ jobs:
   hello-world:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
       - name: Run Python action
         id: python-action
         uses: karelbemelmans/task-definition-otel-sidecar@main
