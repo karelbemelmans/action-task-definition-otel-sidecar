@@ -24,7 +24,7 @@ def main():
         print(f"::error: task definition does not contain containerDefinitions")
         exit(1)
 
-    s = SidecarGenerator(name=args.container_name, image=args.image)
+    s = SidecarGenerator(container_name=args.container_name, image=args.image)
     updatedTaskDefinition = s.addOtelSidecar(taskDefinition)
 
     # Generate a new file in the runner's temp directory
