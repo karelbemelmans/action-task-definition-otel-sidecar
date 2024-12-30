@@ -16,6 +16,9 @@ class TestSidecar(unittest.TestCase):
 
     def test_sidear_with_valid_input(self):
 
+        name = "otel"
+        image = "otel/opentelemetry-collector-contrib"
+
         expectedTaskDefinition = {
             "containerDefinitions": [
                 {
@@ -29,7 +32,7 @@ class TestSidecar(unittest.TestCase):
             ]
         }
 
-        s = SidecarGenerator()
+        s = SidecarGenerator(name=name, image=image)
         generated = s.addOtelSidecar(self.taskDefinition)
         self.assertEqual(generated, expectedTaskDefinition)
 

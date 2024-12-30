@@ -1,11 +1,11 @@
 class SidecarGenerator:
 
-    otelSidecarDefinition = {
-        "name": "otel",
-        "image": "otel/opentelemetry-collector-contrib"
-    }
+    def __init__(self, name=None, image=None):
+        self.otelSidecarDefinition = {
+            "name": name,
+            "image": image
+        }
 
-    def __init__(self):
         pass
 
     def addOtelSidecar(self, json):
