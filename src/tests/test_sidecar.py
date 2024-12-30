@@ -27,7 +27,11 @@ class TestSidecar(unittest.TestCase):
                 },
                 {
                     "name": "otel",
-                    "image": "otel/opentelemetry-collector-contrib"
+                    "image": "otel/opentelemetry-collector-contrib",
+                    "essential": True,
+                    "command": [
+                        "--config=/etc/ecs/otel-instance-metrics-config.yaml"
+                    ],
                 }
             ]
         }

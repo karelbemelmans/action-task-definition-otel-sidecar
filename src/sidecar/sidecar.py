@@ -1,9 +1,15 @@
 class SidecarGenerator:
 
     def __init__(self, container_name=None, image=None):
+
+        # Define the sidecar container
         self.otelSidecarDefinition = {
             "name": container_name,
-            "image": image
+            "image": image,
+            "essential": True,
+            "command": [
+                "--config=/etc/ecs/otel-instance-metrics-config.yaml"
+            ],
         }
 
         pass
