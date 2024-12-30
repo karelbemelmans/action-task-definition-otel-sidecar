@@ -7,10 +7,10 @@ inputs:
     required: true
   container-name:
     description: 'Container name'
-    required: false
+    required: true
   image:
     description: 'Docker image'
-    required: false
+    required: true
 
 outputs:
   task-definition:
