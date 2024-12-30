@@ -9,9 +9,6 @@ def main():
     parser.add_argument('--task-definition', required=False, default="task-definition.json", help='The task defintion')
     args = parser.parse_args()
 
-    # Do some Github feedback stuff
-    # print("::notice file=entrypoint.sh,line=11::Checkpoint reached")
-
     # Read the task definition from file
     try:
         with open(args.task_definition, 'r') as fh:
@@ -27,10 +24,13 @@ def main():
 
     s = SidecarGenerator()
     updatedTaskDefinition = s.addOtelSidecar(taskDefinition)
-    print("::info Updated task definition: %s" % updatedTaskDefinition)
 
     # Generate a new temporary filename with a random filename suffix
-    file = f"updated-task-definition.json"
+    tmpdir = os.environ.get('RUNNER_TEMP')
+    prefix = 'task-definition-'
+    extension = '.json'
+    random = os.urandom(4).hex()
+    file = os.path.join(tmpdir, f"{prefix}{random}{extension}")
 
     # Write the updated task definition to file
     try:
