@@ -48,6 +48,8 @@ jobs:
         uses: ./
         with:
           task-definition: 'example/task-definition.json'
+          container-name: 'aws-otel-collector'
+          image: 'public.ecr.aws/aws-observability/aws-otel-collector:v0.30.0'
 
       - name: Print Output
         id: output

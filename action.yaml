@@ -7,10 +7,10 @@ inputs:
     required: true
   container-name:
     description: 'Container name'
-    required: true
+    required: false
   image:
     description: 'Docker image'
-    required: true
+    required: false
 
 outputs:
   task-definition:
@@ -29,7 +29,7 @@ runs:
       id: run-python
       shell: bash
       run: |
-        python3 ${{ github.action_path }}/src/action.py \ 
-          --task-definition "${{ inputs.task-definition }}" \ 
+        python3 ${{ github.action_path }}/src/action.py \
+          --task-definition "${{ inputs.task-definition }}" \
           --container-name "${{ inputs.container-name }}" \
           --image "${{ inputs.image }}"
