@@ -1,0 +1,29 @@
+name: "My First Python action"
+description: "It's just a simple Hello World action."
+
+inputs:
+  task-defintion:
+    description: "Task definition"
+    required: true
+
+outputs:
+  task-definition:
+    description: "The modified task defintion."
+    value: ${{ steps.run-python.outputs.task-definition }}
+
+runs:
+  using: "composite"
+  steps:
+    - name: Set python3
+      uses: actions/setup-python@v5
+      with:
+        python-version-file: "${{ github.action_path }}/src/.python-version"
+
+    # - name: Install Python packages
+    #   shell: bash
+    #   run: pip install -i ${{ github.action_path }}/src/requirements.txt
+
+    - name: Run Python script
+      id: run-python
+      shell: bash
+      run: python3 ${{ github.action_path }}/src/action.py --task-definition "${{ inputs.task-definition }}"

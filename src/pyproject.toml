@@ -1,0 +1,12 @@
+[project]
+name = "my_first_python_action"
+version = "0.0.1"
+authors = [{ name = "Karel Bemelmans", email = "info@karelbemelmans.com" }]
+description = "A small example package"
+readme = "README.md"
+requires-python = ">=3.12"
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+]

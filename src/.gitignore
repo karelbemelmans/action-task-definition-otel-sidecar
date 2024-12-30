@@ -1,0 +1,5 @@
+__pycache__
+.pytest_cache
+.venv
+build
+my_first_python_package.egg-info

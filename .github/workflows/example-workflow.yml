@@ -1,0 +1,17 @@
+name: Example workflow using our action
+on:
+  workflow_dispatch:
+
+jobs:
+  hello-world:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Python action
+        id: hello-world
+        uses: karelbemelmans/task-definition-otel-sidecar@main
+        with:
+          task-definition: 'example/task-definition.json'
+
+      - name: Show greeting
+        run: |
+          echo "${{ steps.hello-world.outputs.greeting }}"
