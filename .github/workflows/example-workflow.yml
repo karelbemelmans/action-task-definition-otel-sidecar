@@ -17,6 +17,5 @@ jobs:
 
       - name: Show generated task definition
         run: |
-          sudo apt-get install jq -y
           echo "file: ${{ steps.python-action.outputs.task-definition }}"
           cat ${{ steps.python-action.outputs.task-definition }} | jq '.'
