@@ -5,15 +5,15 @@ authors = [{ name = "Karel Bemelmans", email = "info@karelbemelmans.com" }]
 description = "A small example package"
 readme = "README.md"
 requires-python = ">=3.12"
-classifiers = [
-  "Programming Language :: Python :: 3",
-  "License :: OSI Approved :: MIT License",
-  "Operating System :: OS Independent",
-]
 
-[tool.autopep8]
-max_line_length = 120
-ignore = "E501,W6"    # or ["E501", "W6"]
-in-place = true
-recursive = true
-aggressive = 3
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.12"
+pytest = "^8.3.4"
+black = "^24.10.0"
