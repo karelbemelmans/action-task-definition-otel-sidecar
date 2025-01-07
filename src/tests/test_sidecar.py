@@ -6,12 +6,7 @@ class TestSidecar(unittest.TestCase):
 
     # Example data of a task definition
     taskDefinition = {
-        "containerDefinitions": [
-            {
-                "name": "my-container",
-                "image": "my-image"
-            }
-        ]
+        "containerDefinitions": [{"name": "my-container", "image": "my-image"}]
     }
 
     def test_sidear_with_valid_input(self):
@@ -21,18 +16,13 @@ class TestSidecar(unittest.TestCase):
 
         expectedTaskDefinition = {
             "containerDefinitions": [
-                {
-                    "name": "my-container",
-                    "image": "my-image"
-                },
+                {"name": "my-container", "image": "my-image"},
                 {
                     "name": "otel",
                     "image": "otel/opentelemetry-collector-contrib",
                     "essential": True,
-                    "command": [
-                        "--config=/etc/ecs/otel-instance-metrics-config.yaml"
-                    ],
-                }
+                    "command": ["--config=/etc/ecs/otel-instance-metrics-config.yaml"],
+                },
             ]
         }
 
@@ -41,5 +31,5 @@ class TestSidecar(unittest.TestCase):
         self.assertEqual(generated, expectedTaskDefinition)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

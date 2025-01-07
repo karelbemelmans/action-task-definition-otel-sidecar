@@ -7,9 +7,7 @@ class SidecarGenerator:
             "name": container_name,
             "image": image,
             "essential": True,
-            "command": [
-                "--config=/etc/ecs/otel-instance-metrics-config.yaml"
-            ],
+            "command": ["--config=/etc/ecs/otel-instance-metrics-config.yaml"],
         }
 
         pass
@@ -18,5 +16,5 @@ class SidecarGenerator:
         return self._addSidecar(json, self.otelSidecarDefinition)
 
     def _addSidecar(self, json, sidecar):
-        json['containerDefinitions'].append(sidecar)
+        json["containerDefinitions"].append(sidecar)
         return json
