@@ -21,7 +21,7 @@ runs:
   using: 'composite'
   steps:
     - name: Set python3
-      uses: actions/setup-python@v5
+      uses: actions/setup-python@v6
       with:
         python-version-file: '${{ github.action_path }}/src/.python-version'
 
